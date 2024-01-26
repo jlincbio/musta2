@@ -1,0 +1,78 @@
+# Queue requirements of sub-processes.
+default:
+  slot: 1
+  memory: 8
+  ljob: FALSE
+
+fasta2BSgenome:
+  # original
+  memory: 36
+lordec_build:
+  # run {lordec-build-SR-graph}
+  slot: 8
+  memory: 16
+lordec: 
+  # run {lordec-correct}
+  slot: 8
+  memory: 16
+minimap2:
+  # run {minimap2}
+  slot: 8
+  memory: 32
+qual_filter:
+  # original
+  memory: 32
+samtools:
+  # run {samtools sort} and {samtools index}
+  slot: 16
+  memory: 5
+intra_merge:
+  # original
+  slot: 12
+  memory: 14
+inter_merge:
+  # original
+  slot: 12
+  memory: 15
+gtf2fasta:
+  # original
+  memory: 32
+salmon_index:
+  # run {salmon index}
+  slot: 4
+  memory: 60
+salmon_quant:
+  # run {salmon quant}
+  slot: 12
+  memory: 16
+merge_salmon:
+  # original
+  memory: 32
+sqanti:
+  # run {sqanti_filter.py}, {sqanti_qc.py}, and original codes
+  memory: 46
+  ljob: FALSE
+filter_variant:
+  # original
+  slot: 12
+  memory: 41
+link_original_range:
+  # original
+  memory: 40
+fusion_bind:
+  # original
+  memory: 20
+fusion_parse:
+  # original
+  slot: 16
+  memory: 10
+fusion_sqanti: 
+  # run {sqanti_qc.py}
+  memory: 46
+fusion_summary:
+  # original
+  memory: 16
+report_number:
+  # original
+  slot: 16
+  memory: 8

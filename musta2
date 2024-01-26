@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use File::Spec;
+use File::Basename;
+
+my $w0 = File::Spec->rel2abs(__FILE__);
+my $p0 = dirname($w0);
+
+my $r_lib_sys = '';
+my $r_lib_usr = '';
+my $conda_activation = ''; # $CONDA_DEFAULT_ENV
+my $rscript = `which Rscript`; chomp $rscript;
+
+my $p0_cupcake = "$p0/cDNA_Cupcake/sequence";
+my $p_cupcake = $ENV{PYTHONPATH} // '';
+if ($p_cupcake =~ m/cDNA_Cupcake/) {
+	#$p_cupcake = $ENV{PYTHONPATH};
+} elsif (-e $p0_cupcake) {
+	$p_cupcake = $p0_cupcake;
+	$ENV{PYTHONPATH}=$p0_cupcake;
+} else {
+	print STDERR "# PacBio Cupcake scripts cannot be located!\n";
+	exit 72;
+}
+
+if (defined $ENV{R_LIBS}) {
+	$r_lib_sys = "R_LIBS=''";
+	print STDERR "# Custom \'R_LIBS\' setting detected and disabled to ensure compatibility!\n";
+}
+
+if (defined $ENV{R_LIBS_USER}) {
+	$r_lib_usr = "R_LIBS_USER=''";
+	print STDERR "# Custom \'R_LIBS_USER\' setting detected and disabled to ensure compatibility!\n";
+}
+
+my $cmd = sprintf "%s %s %s %s/lib/musta2_launcher.R --base %s --cupcake %s %s", $r_lib_sys, $r_lib_usr, $rscript, $p0, $p0, $p_cupcake, join(' ', @ARGV);
+my $s = system $cmd;
+
+exit $s;
