@@ -2,9 +2,8 @@
 
 
 
-Current release: [![DOI](https://zenodo.org/badge/748499811.svg)](https://zenodo.org/doi/10.5281/zenodo.10685676)
-
-[![Documentation Status](https://readthedocs.org/projects/musta/badge/?version=latest)](https://musta.readthedocs.io/en/latest/?badge=latest)
+Current release: 
+[![DOI](https://zenodo.org/badge/748499811.svg)](https://zenodo.org/doi/10.5281/zenodo.10685676)
 
 This is a pipeline and associated R codes which take long-read isoform sequencing results as input and genarate an assembled transcriptome.
 Documentation for the original version of MuSTA as well as a quick-start guide can be found at https://musta.readthedocs.io.
