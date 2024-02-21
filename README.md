@@ -2,15 +2,14 @@
 
 
 
-Current release: 
+Current release - updated 1/18/2024 as v0.2.2:
+
 [![DOI](https://zenodo.org/badge/748499811.svg)](https://zenodo.org/doi/10.5281/zenodo.10685676)
 
 This is a pipeline and associated R codes which take long-read isoform sequencing results as input and genarate an assembled transcriptome.
 Documentation for the original version of MuSTA as well as a quick-start guide can be found at https://musta.readthedocs.io.
 
 A preview for MuSTA2 was unveiled during the annual meeting of the Japanese Cancer Association in 2022: [J. Lin, T. Morinaga, M. Kawazu. Characterization of cancer-associated transcriptional splicing variants from massive parallel sequencing by MuSTA (abstract). In: Abstracts of the 81st Annual Meeting of the Japanese Cancer Association; 2022 29 September - 1 October; Yokohama, Japan. _Cancer Sci._ 2023: **114** (Suppl 1); 1785](https://doi.org/10.1111/cas.15742)
-
-Last updated: 1/18/2024
 
 ## Prerequisites
 * Python 3.7 via a Miniconda or Anaconda environment<sup>1</sup>
