@@ -34,14 +34,15 @@ A preview for MuSTA2 was unveiled during the annual meeting of the Japanese Canc
 MuSTA2 requires the presence of a Miniconda or Anaconda environment; this is mostly to accomodate companion tools such as SQANTI 3; if you alread have a SQANTI 3 python environment present then MuSTA can be installed within that environment as well.
 
 ```
-mkdir musta2
-conda env create -f musta.conda_env.yml
+git clone https://github.com/jlincbio/musta2.git
+cd musta2
+conda env create -f musta2.conda_env.yml
 conda activate musta2
-cd musta2 && git clone https://github.com/ConesaLab/SQANTI3.git
+git clone https://github.com/ConesaLab/SQANTI3.git
 mv SQANTI3/sqanti3*.py .
 mv SQANTI3/utilities .
 rm -rf SQANTI3
-wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred -P ./utilities/
+wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred -P ./utilities/ # optional in x64 Linux
 chmod +x ./utilities/gtfToGenePred 
 git clone https://github.com/Magdoll/cDNA_Cupcake.git
 CONDA_BIN=`dirname $(which gmap)`
